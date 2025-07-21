@@ -37,8 +37,9 @@ exports.getAvailableOptions = async (req, res) => {
     const { template_str_id, target_category_str_id } = req.params;
     const { current_selections } = req.body;
 
-    // Implementation would go here (see services/optionFilter.js)
-    res.status(501).json({ message: 'Not yet implemented' });
+    const { filterAvailableOptions } = require('../services/optionFilter');
+    const availableOptions = await filterAvailableOptions(template_str_id, target_category_str_id, current_selections || {});
+    res.status(200).json({ available_options: availableOptions });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -49,8 +50,9 @@ exports.validateConfiguration = async (req, res) => {
     const { template_str_id } = req.params;
     const { selections } = req.body;
 
-    // Implementation would go here (see services/configValidator.js)
-    res.status(501).json({ message: 'Not yet implemented' });
+    const { validateConfiguration } = require('../services/configValidator');
+    const result = await validateConfiguration(template_str_id, selections || {});
+    res.status(200).json(result);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

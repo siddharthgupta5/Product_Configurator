@@ -83,7 +83,7 @@ All endpoints are prefixed with `/api`.
   ```
 - **Response:** 201 Created, returns the created rule object.
 
-### 5. (Planned) Get Available Options
+### 5. Get Available Options
 - **POST** `/api/product-templates/:template_str_id/available-options/:target_category_str_id`
 - **Body:**
   ```json
@@ -93,7 +93,7 @@ All endpoints are prefixed with `/api`.
   ```
 - **Response:** 501 Not Implemented
 
-### 6. (Planned) Validate Configuration
+### 6. Validate Configuration
 - **POST** `/api/product-templates/:template_str_id/validate-configuration`
 - **Body:**
   ```json
@@ -110,5 +110,3 @@ All endpoints are prefixed with `/api`.
 - `routes/api.js` - API route definitions
 - `config/db.js` - Database config
 
-## License
-ISC 
